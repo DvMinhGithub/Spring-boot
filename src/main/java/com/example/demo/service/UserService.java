@@ -41,5 +41,15 @@ public class UserService implements UserServiceImpl {
         return null;
     }
 
-
+    @Override
+    public List<UserDto> searchUsers(String name) {
+        List<UserDto> result = new ArrayList<>();
+        name = name.toLowerCase();
+        for (User user : users) {
+            if ( user.getName().toLowerCase().contains(name)) {
+                result.add(UserMapper.toUserDto(user));
+            }
+        }
+        return result;
+    }
 }

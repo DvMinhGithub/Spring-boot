@@ -11,4 +11,6 @@ public interface UserServiceImpl {
     public List<UserDto> getUsers();
 
     public UserDto getUserById(int id);
+
+    public List<UserDto> searchUsers (String name);
 }
