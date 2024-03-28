@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.entity.User;
+import com.example.demo.exception.NotFoundException;
 import com.example.demo.model.dto.UserDto;
 import com.example.demo.model.mapper.UserMapper;
 
@@ -38,7 +39,7 @@ public class UserService implements UserServiceImpl {
                 return UserMapper.toUserDto(user);
             }
         }
-        return null;
+        throw new NotFoundException("User not found");
     }
 
     @Override
